@@ -4,6 +4,6 @@ class Project
   field :name
   field :key
   field :url
-  
-  belongs_to :event
+
+  has_many :events
 end

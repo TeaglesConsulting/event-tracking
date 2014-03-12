@@ -1,8 +1,11 @@
 class Event
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :event_type
   field :data
-  
-  has_one :project
+
+  belongs_to :project
+
+  validates_presence_of :project
 end
