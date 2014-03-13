@@ -1,12 +1,12 @@
 class EventsController < ApplicationController
 
   def create
-    WriteWorker.perform_async(event_params, project_key)
+    WriteWorker.perform_async(event_data, project_key)
     head :accepted
   end
 
 private
-  def event_params
+  def event_data
     { event_type: params[:event_type], data: params[:data] }
   end
 
