@@ -20,31 +20,26 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
 
-  # some sidekiq stuff
+  # Sidekiq stuff
   config.before(:each) do |example_method|
-      # Clears out the jobs for tests using the fake testing
-      Sidekiq::Worker.clear_all
-      # Get the current example from the example_method object
-      example = example_method.example
+    # Clears out the jobs for tests using the fake testing
+    Sidekiq::Worker.clear_all
+    # Get the current example from the example_method object
+    example = example_method.example
 
-      if example.metadata[:sidekiq] == :fake
-        Sidekiq::Testing.fake!
-      elsif example.metadata[:sidekiq] == :inline
-        Sidekiq::Testing.inline!
-      elsif example.metadata[:type] == :acceptance
-        Sidekiq::Testing.inline!
-      else
-        Sidekiq::Testing.fake!
-      end
+    if example.metadata[:sidekiq] == :fake
+      Sidekiq::Testing.fake!
+    elsif example.metadata[:sidekiq] == :inline
+      Sidekiq::Testing.inline!
+    elsif example.metadata[:type] == :acceptance
+      Sidekiq::Testing.inline!
+    else
+      Sidekiq::Testing.fake!
     end
+  end
 
   # Factory Girl
   config.include FactoryGirl::Syntax::Methods
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  # config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
