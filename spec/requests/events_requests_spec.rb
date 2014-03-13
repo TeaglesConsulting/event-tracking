@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe 'Events' do
+
+  let(:project) { create(:project, key: 'mykey', name: 'test site', url: 'tracker.dev') }
   let(:data) { '{ "foo" : "bar" }' }
 
   before :each do
