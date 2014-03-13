@@ -55,6 +55,7 @@ GEM
     celluloid (0.15.2)
       timers (~> 1.1.0)
     connection_pool (1.2.0)
+    database_cleaner (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     factory_girl (4.4.0)
@@ -160,6 +161,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-chruby
   capistrano-rails
+  database_cleaner
   factory_girl_rails
   interactor-rails
   jbuilder (~> 1.2)

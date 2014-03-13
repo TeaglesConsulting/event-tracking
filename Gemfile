@@ -17,4 +17,5 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
