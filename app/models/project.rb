@@ -6,4 +6,5 @@ class Project
   field :url
 
   has_many :events
+  validates :name, :key, presence: true
 end

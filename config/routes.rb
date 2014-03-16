@@ -1,6 +1,7 @@
 Tracker::Application.routes.draw do
 
   post 'events/:event_type', to: 'events#create'
+  post 'projects', to: 'projects#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
